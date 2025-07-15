@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<div class="blog">
+ <div class="blog-part is-menu">
+  <a href="#" class="blog-menu">
+   Technique
+  </a>
+  <a href="#" class="blog-menu">Musique</a>
+  <a href="#" class="blog-menu">Inspirations</a>
+  <a href="#" class="blog-menu mention">@bruyant.rod</a>
+  <a href="#" class="blog-menu subscribe">S'abonner
+   <svg fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right" viewBox="0 0 24 24">
+    <path d="M7 17L17 7M7 7h10v10" />
+   </svg></a>
+ </div>
+ <div class="blog-header blog-is-sticky">
+  <div class="blog-article header-article">
+   <div class="blog-big__title" id="bigbig">Zone</div>
+   <div class="blog-menu rounded small-title">art & bidouillages</div>
+  </div>
+  <div class="blog-article page-number">
+   <del class="home">HOME</del>
+  </div>
+ </div>
+ <div id= "articles" class="blog-header-container"></div>
+    <script src="content.js"></script>
+  <script>
+    const container = document.getElementById('articles');
+    articles.forEach(article => {
+      const art = document.createElement('article');
+      art.innerHTML = `<div class="blog-header">
+   <div class="blog-article header-article">
+    <div class="blog-big__title">${article.label}</div>
+    <div class="blog-menu small-title date">${article.date}</div>
+   </div>
+   <div class="blog-article">
+    <img src="./Articles/img/${article.image}" alt="">
+    <h2>${article.title}</h2>
+    <div class="blog-detail">
+     <span>${article.subtitle}</span>
+     <span>${article.mention}</span>
+    </div>
+    <p class="long-text">${article.text}</p>
+    <a href="articles/${article.id}.html">
+     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-down-right" viewBox="0 0 24 24">
+      <path d="M15 10l5 5-5 5" />
+      <path d="M4 4v7a4 4 0 004 4h12" />
+     </svg>
+     Lire
+    </a>
+   </div>
+  </div>
+      `;
+      container.appendChild(art);
+    });
+  </script>
+ <div class="blog-part right-blog">
+  <div class="blog-right-title-container">
+   <div class="blog-right-title">
+    Dernières News
+   </div>
+   <div class="blog-menu rounded">Social media</div>
+  </div>
+ </div>
+</div>
+<script>document.addEventListener("DOMContentLoaded", function() { var paras = document.getElementsByClassName("long-text");
+for (var j = 0; j < paras.length; j++) {
+  var para = paras[j];
+  var text = para.innerHTML;
+  para.innerHTML = "";
+  var words = text.split(" ");
+  for (var i = 0; i < Math.min(50, words.length); i++) {
+    para.innerHTML += words[i] + " ";
+  }
+  para.innerHTML += "...";
+}});</script>
